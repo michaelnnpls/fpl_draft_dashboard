@@ -54,7 +54,7 @@ st.header("Welcome to our FPL Draft League Dash")
 
 st.subheader("Load data")
 
-@st.cache_data(show_spinner="Fetching data from API and manipulating it")
+@st.cache_data(show_spinner="Fetching data from API and manipulating it",ttl=43200)
 def load_data():
 	# Create next gw variable
 	#------------------------------
