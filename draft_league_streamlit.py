@@ -17,7 +17,7 @@ team_color_dict={
 'Baconators':'#fe4a49',
 'Jane United':'#2ab7ca',
 'Diego FC': '#fed766',
-'Poch It Real Good FC':'#F9E6AF',
+'Poch It Real Good FC':'#114951',
 'Put it in harder':'#f4f4f8',
 'FC Habibi':'#94818A',
 'The Average Team':'#94C798'
