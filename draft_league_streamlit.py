@@ -171,7 +171,7 @@ aggregate_momentum_df=draft_match_data[(draft_match_data.lineup=='On Field')&(dr
 aggregate_momentum_df["fpl_team"] = pd.Categorical(aggregate_momentum_df["fpl_team"], categories = rankings)
 
 
-fig_momentum=px.bar(aggregate_momentum_df.sort_values('total_points'),y='fpl_team',
+fig_momentum=px.bar(aggregate_momentum_df.sort_values('total_points',ascending=False),y='fpl_team',
 	x='total_points',
 	color='fpl_team',
 	opacity=0.8,
