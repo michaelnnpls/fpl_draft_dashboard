@@ -340,7 +340,22 @@ fig_consistency.update_layout(showlegend=False,
 
 st.plotly_chart(fig_consistency,use_container_width=True)
 
+cumulative=weekly_team_trend.copy()
+cumulative['cumulative']=cumulative.groupby('fpl_team').total_points.cumsum()
+cumulative['minimum']=cumulative.groupby('gameweek').cumulative.transform('min')
+cumulative['delta_from_minimum']=cumulative['cumulative']-cumulative['minimum']
 
+fig_delta_minimum=px.line(cumulative.sort_values(['fpl_team','gameweek']),
+	title='Delta from Minimum',
+    y='delta_from_minimum',
+    x='gameweek',
+   	color='fpl_team',
+	color_discrete_map=team_color_dict, 
+   	template='plotly_dark',
+   	labels=dict(delta_from_minimum="Points difference from Minimum", gameweek="Gameweek",fpl_team="FPL Team"),
+       )
+
+st.plotly_chart(fig_delta_minimum,use_container_width=True)
 
 # Analysis of picks
 #------------------------------------------------------------
