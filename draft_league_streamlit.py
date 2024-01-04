@@ -4,7 +4,11 @@
 
 
 import streamlit as st
-st.set_page_config(layout="wide")
+st.set_page_config(
+	page_title="Fantasy Draft PL | The Bacon League",
+	page_icon="🐖",
+	layout="wide"
+	)
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -46,8 +50,7 @@ def clean_bar_fig(figure):
               )
 
 
-st.header("Welcome to our FPL Draft League Dash")
-
+st.image('./images/FPL_Bacon_League.png',width=600)
 #------------------------------------------------------------
 # Load Data
 #------------------------------------------------------------
