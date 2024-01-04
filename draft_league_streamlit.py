@@ -49,13 +49,11 @@ def clean_bar_fig(figure):
               # yaxis_title=""
               )
 
-
-st.image('./images/FPL_Bacon_League.png',width=600)
 #------------------------------------------------------------
 # Load Data
 #------------------------------------------------------------
 
-st.subheader("Load data")
+st.text("Load data")
 
 @st.cache_data(show_spinner="Fetching data from API and manipulating it",ttl=43200)
 def load_data():
@@ -141,8 +139,8 @@ def load_data():
 draft_match_data,teams_draft_picks,match_data,next_gw=load_data()
 
 st.write('Data is loaded')
+st.image('./images/FPL_Bacon_League.png')
 st.divider()
-
 
 #--------------
 # Analysis Section
