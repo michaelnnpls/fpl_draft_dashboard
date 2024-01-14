@@ -4,7 +4,11 @@
 
 
 import streamlit as st
-st.set_page_config(layout="wide")
+st.set_page_config(
+	page_title="Fantasy Draft PL | The Bacon League",
+	page_icon="🐖",
+	layout="wide"
+	)
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -45,14 +49,11 @@ def clean_bar_fig(figure):
               # yaxis_title=""
               )
 
-
-st.header("Welcome to our FPL Draft League Dash")
-
 #------------------------------------------------------------
 # Load Data
 #------------------------------------------------------------
 
-st.subheader("Load data")
+st.text("Load data")
 
 @st.cache_data(show_spinner="Fetching data from API and manipulating it",ttl=43200)
 def load_data():
@@ -138,8 +139,8 @@ def load_data():
 draft_match_data,teams_draft_picks,match_data,next_gw=load_data()
 
 st.write('Data is loaded')
+st.image('./images/FPL_Bacon_League.png')
 st.divider()
-
 
 #--------------
 # Analysis Section
