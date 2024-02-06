@@ -356,7 +356,31 @@ fig_delta_minimum=px.line(cumulative.sort_values(['fpl_team','gameweek']),
    	labels=dict(delta_from_minimum="Points difference from Minimum", gameweek="Gameweek",fpl_team="FPL Team"),
        )
 
-st.plotly_chart(fig_delta_minimum,use_container_width=True)
+viz_difference=aggregate_df.copy()
+viz_difference['difference'] = viz_difference['total_points'].diff(periods=-1).abs()
+
+fig_difference = px.bar(
+	viz_difference,
+	title='Point Margin',
+	y='fpl_team',
+	x='difference',
+	color='fpl_team',
+	opacity=0.8,
+	text_auto=True,
+	color_discrete_map=team_color_dict,
+	labels={'fpl_team':'FPL Team','difference':'Margin'},
+	template='plotly_dark'
+	)
+
+fig_difference.update_layout(showlegend=False)
+
+col5, col6 = st.columns([3,1])
+
+with col5:
+	st.plotly_chart(fig_delta_minimum,use_container_width=True)
+
+with col6:
+	st.plotly_chart(fig_difference,use_container_width=True)
 
 # Analysis of picks
 #------------------------------------------------------------
@@ -427,9 +451,10 @@ st.header('Pick and Transfer Analysis')
 
 col6,col7=st.columns(2)
 with col6:
-
+	st.subheader('Top Draft Picks')
 	st.plotly_chart(fig_top_picks,use_container_width=True)
 	with col7:
+		st.subheader('Top Transfers')
 		st.plotly_chart(fig_top_transfers,use_container_width=True)
 
 
@@ -466,5 +491,3 @@ fig_distrib.update_layout(showlegend=True,
 	)
 
 st.plotly_chart(fig_distrib,use_container_width=True)
-
-
