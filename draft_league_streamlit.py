@@ -60,7 +60,7 @@ def load_data():
 	# Create next gw variable
 	#------------------------------
 	r=requests.get('https://draft.premierleague.com/api/bootstrap-static')  # Generic endpoint with a bunch of data
-	next_gw=json.loads(r.content)['events']['next']
+	next_gw=json.loads(r.content)['events']#['next']
 
 	# Get element (player) meta data
 	#------------------------------
