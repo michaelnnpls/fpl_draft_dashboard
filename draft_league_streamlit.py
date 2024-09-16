@@ -18,11 +18,11 @@ from matplotlib import pyplot as plt
 
 
 team_color_dict={
-'Slot Machine':'#FF6F61',#fe4a49',
+'Slot Machine':'#F1C40F',#fe4a49',
 'Diego FC': '#6B5B95',#'#fed766',
 'Hope FC':'#88B04B',#114951',
 'Waka Waka eh, eh…':'#F7CAC9',#f4f4f8',
-'FC Habibi':'#92A8D1',#94818A',
+'FC Habibi':'#E67E22',#94818A',
 'AC NoKnee Madueke':'#955251',#94C798'
 }
 
