@@ -18,13 +18,12 @@ from matplotlib import pyplot as plt
 
 
 team_color_dict={
-'Baconators':'#fe4a49',
-'Jane United':'#2ab7ca',
-'Diego FC': '#fed766',
-'Poch It Real Good FC':'#114951',
-'Put it in harder':'#f4f4f8',
-'FC Habibi':'#94818A',
-'The Average Team':'#94C798'
+'Slot Machine':'#FF6F61',#fe4a49',
+'Diego FC': '#6B5B95',#'#fed766',
+'Hope FC':'#88B04B',#114951',
+'Waka Waka eh, eh…':'#F7CAC9',#f4f4f8',
+'FC Habibi':'#92A8D1',#94818A',
+'AC NoKnee Madueke':'#955251',#94C798'
 }
 
 config = {
@@ -60,7 +59,7 @@ def load_data():
 	# Create next gw variable
 	#------------------------------
 	r=requests.get('https://draft.premierleague.com/api/bootstrap-static')  # Generic endpoint with a bunch of data
-	next_gw=39#json.loads(r.content)['events']['next']
+	next_gw=json.loads(r.content)['events']['next']
 
 	# Get element (player) meta data
 	#------------------------------
@@ -102,7 +101,7 @@ def load_data():
 	# This end point uses our league and gets the choices in the draft
 	#------------------------------------------------------------
 
-	choices=requests.get('https://draft.premierleague.com/api/draft/24706/choices')
+	choices=requests.get('https://draft.premierleague.com/api/draft/42426/choices')
 	teams_draft_picks=pd.json_normalize(json.loads(choices.content)['choices']) # This has the draft picks
 
 	teams_fpl=teams_draft_picks[['entry','entry_name']].drop_duplicates(['entry','entry_name']) # This has just the ids and the name of the teams to loop through
