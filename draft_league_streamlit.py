@@ -59,8 +59,10 @@ def load_data():
 	# Create next gw variable
 	#------------------------------
 	r=requests.get('https://draft.premierleague.com/api/bootstrap-static')  # Generic endpoint with a bunch of data
-	next_gw=json.loads(r.content)['events']['next']
-
+	try:
+		next_gw=json.loads(r.content)['events']['next']
+	except:
+		next_gw=39
 	# Get element (player) meta data
 	#------------------------------
 	teams=pd.json_normalize(json.loads(r.content)['teams'])[['id','code','short_name','name']]
