@@ -125,14 +125,20 @@ def load_data():
                 output = pd.concat([output, data_player_gw], axis=0)
             except:
                 pass
-
-    match_data = output.merge(
-        players_df[
-            ["id", "web_name", "team_name", "team_short_name", "position_short_name"]
-        ],
-        left_on=["element"],
-        right_on=["id"],
-    )  # Simply add the relevant meta data for the players
+    if len(output) > 0:
+        match_data = output.merge(
+            players_df[
+                [
+                    "id",
+                    "web_name",
+                    "team_name",
+                    "team_short_name",
+                    "position_short_name",
+                ]
+            ],
+            left_on=["element"],
+            right_on=["id"],
+        )  # Simply add the relevant meta data for the players
 
     # This end point uses our league and gets the choices in the draft
     # ------------------------------------------------------------
@@ -145,7 +151,6 @@ def load_data():
     teams_fpl = teams_draft_picks[["entry", "entry_name"]].drop_duplicates(
         ["entry", "entry_name"]
     )  # This has just the ids and the name of the teams to loop through
-
     # Now for a given player in the FPL League (got to loop through)
     # ------------------------------------------------------------
 
