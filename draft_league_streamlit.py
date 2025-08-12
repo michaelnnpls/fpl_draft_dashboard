@@ -137,7 +137,7 @@ def load_data():
     # This end point uses our league and gets the choices in the draft
     # ------------------------------------------------------------
 
-    choices = requests.get("https://draft.premierleague.com/api/draft/42426/choices")
+    choices = requests.get("https://draft.premierleague.com/api/draft/4193/choices")
     teams_draft_picks = pd.json_normalize(
         json.loads(choices.content)["choices"]
     )  # This has the draft picks
