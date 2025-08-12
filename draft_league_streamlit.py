@@ -17,12 +17,12 @@ from matplotlib import pyplot as plt
 
 
 team_color_dict = {
-    "Slot Machine": "#F1C40F",  # fe4a49',
+    "Wirtzuose": "#F1C40F",  # fe4a49',
     "Diego FC": "#6B5B95",  #'#fed766',
-    "Hope FC": "#88B04B",  # 114951',
-    "Waka Waka eh, eh…": "#F7CAC9",  # f4f4f8',
+    "FacePalmer FC": "#88B04B",  # 114951',
+    "Put it in in": "#F7CAC9",  # f4f4f8',
     "FC Habibi": "#E67E22",  # 94818A',
-    "AC NoKnee Madueke": "#955251",  # 94C798'
+    "Guinness FC": "#955251",  # 94C798'
 }
 
 config = {
