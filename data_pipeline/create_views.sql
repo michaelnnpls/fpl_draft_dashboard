@@ -118,7 +118,7 @@ CREATE OR REPLACE VIEW `{project_id}.{dataset_id}.agg_draft_picks_analysis` AS
 SELECT
     mgr.manager_name,
     CASE
-        WHEN dp.pick IS NOT NULL AND dp.pick <= 3 THEN 1
+        WHEN dp.round IS NOT NULL AND dp.round <= 3 THEN 1
         WHEN dp.pick IS NOT NULL THEN dp.pick
         ELSE 999 
     END as pick,
@@ -130,7 +130,7 @@ SELECT
     mgr.web_name as player_name,
     COALESCE(SUM(mgr.total_points), 0) as total_points_contributed,
     CASE 
-        WHEN dp.pick IS NOT NULL AND dp.pick <= 3 THEN 'First 3 Picks'
+        WHEN dp.round IS NOT NULL AND dp.round <= 3 THEN 'First 3 Picks'
         WHEN dp.pick IS NOT NULL THEN 'Other Picks'
         ELSE 'Transfer'
     END as pick_bucket
