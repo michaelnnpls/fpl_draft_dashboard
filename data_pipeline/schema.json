@@ -1,0 +1,17 @@
+[
+    {
+        "name": "player_id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "gameweek",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "points",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    }
+]

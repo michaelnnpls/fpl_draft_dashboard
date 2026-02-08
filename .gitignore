@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Environment
+.env
+
+# Secrets
+service-account.json
+*service-account.json
+backend/service-account.json
+
+# Node
+node_modules/
+.next/
+
+# System
+.DS_Store
