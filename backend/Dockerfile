@@ -11,6 +11,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
+# Copy data_pipeline from parent directory for refresh endpoint
+COPY ../data_pipeline ./data_pipeline
+
 # Expose port (Cloud Run will set PORT env variable)
 EXPOSE 8080
 
