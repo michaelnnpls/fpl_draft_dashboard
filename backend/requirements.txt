@@ -2,6 +2,7 @@ fastapi
 uvicorn
 gunicorn
 pandas
+pyarrow
 requests
 google-cloud-bigquery
 python-dotenv
