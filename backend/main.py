@@ -227,8 +227,15 @@ async def refresh_data():
     from pathlib import Path
     
     # Get the data_pipeline directory
+    # In Docker: data_pipeline is copied to backend directory
+    # In local dev: data_pipeline is in parent directory
     backend_dir = Path(__file__).resolve().parent
-    pipeline_dir = backend_dir.parent / "data_pipeline"
+    pipeline_dir = backend_dir / "data_pipeline"
+    
+    # Fallback to parent directory for local development
+    if not pipeline_dir.exists():
+        pipeline_dir = backend_dir.parent / "data_pipeline"
+    
     pipeline_script = pipeline_dir / "ingest.py"
     
     if not pipeline_script.exists():
